@@ -12,7 +12,7 @@ export default function ServicesSection() {
           <ServiceCard key={service.id} {...service} />
         ))}
       </div>
-      <p className="text-black text-center font-poppins text-2xl font-medium max-w-[60rem] pt-12 mx-auto">
+      <p className="hidden lg:block text-black text-center font-poppins text-2xl font-medium max-w-[60rem] pt-12 mx-auto">
         Whether you&apos;re traveling for business, leisure, or a special <br /> occasion,
         our chauffeur-driven limousines ensure you arrive <br /> in style, comfort,
         and on time.

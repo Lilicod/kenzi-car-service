@@ -9,7 +9,7 @@ export default function ServiceCard( {name} ) {
         style={{
           backgroundImage: `url(/1.png)`,
         }}
-        className="h-72 w-96 rounded-xl bg-cover bg-center relative"
+        className="lg:h-72 lg:w-96 h-72 w-80 rounded-xl bg-cover bg-center relative"
       ></div>
       <div className="text-black absolute top-3 left-3 bg-white rounded-lg font-poppins font-medium py-1 px-3">{name} </div>
     <Link href={"/"}>
