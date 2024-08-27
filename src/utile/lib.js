@@ -45,8 +45,25 @@ export const fleets = [
     name: "SUV Chevrolet",
     id: "1",
   },
+  // {
+  //   name: "SUV Chevrolet",
+  //   id: "2",
+  // },
+];
+
+export const images = [
   {
-    name: "SUV Chevrolet",
-    id: "2",
+    src: "fleet.png",
+    id: "1",
+  },
+  
+  {
+    src:"suv2.png",
+    id: "3",
+  },
+  {
+    src:"suv3.png",
+    id: "4",
   },
 ];
+

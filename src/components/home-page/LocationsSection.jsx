@@ -16,12 +16,13 @@ export default function LocationsSection() {
             imausine sence top cities around he wild Contact us today obook your
             ide and score the utimate hry bansportaton wih Live Ride.
           </p>
-          <Link
-            href={"/services"}
+          <a
+          target="_blank"
+            href={"https://maps.app.goo.gl/Y8dyHJ59dDMi4JxG7"}
             className="rounded-lg bg-primary font-poppins text-white font-medium py-3 px-6 w-fit mx-auto mt-10"
           >
-            Explore More
-          </Link>
+            View in Map
+          </a>
         </div>
         {Locations.map((location) => (
           <LocationCard key={location.id} {...location} />

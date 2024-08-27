@@ -14,7 +14,7 @@ export default function FleetCard({ name }) {
       <div className="text-black absolute top-3 right-3 font-poppins font-medium ">
         {name}{" "}
       </div>
-      <Link href={"/"}>
+      <Link href={"/fleet"}>
 
       <div className="text-black absolute bottom-3 right-3  font-poppins font-light flex items-center gap-2 hover:underline">Explore More <LuArrowUpRight className="bg-primary text-black rounded-full w-10 h-10 p-2 " /></div>
       </Link>
