@@ -15,7 +15,7 @@ export default function Navbar() {
         className={`w-full z-50 flex flex-wrap sm:justify-start sm:flex-nowrap text-sm py- ${
           isHomePage
             ? "absolute backdrop-blur-sm bg-transparent text-white"
-            : "bg-white shadow-sm dark:bg-neutral-800 text-black"
+            : "absolute backdrop-blur-sm bg-transparent text-white"
         }`}
       >
         <nav className="max-w-[75rem] w-full mx-auto px-4 sm:flex sm:items-center sm:justify-between">

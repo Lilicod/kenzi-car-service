@@ -2,6 +2,7 @@ import React from "react";
 import Header from "../Header";
 import LocationCard from "../cards/LocationCard";
 import Link from "next/link";
+import { Locations } from "@/utile/lib";
 
 export default function LocationsSection() {
   return (
@@ -29,26 +30,3 @@ export default function LocationsSection() {
     </div>
   );
 }
-
-const Locations = [
-  {
-    name: "Palm Beach",
-    id: "1",
-    image: "/palm.jpeg",
-  },
-  {
-    name: "Miami",
-    id: "2",
-    image: "/miami.jpeg",
-  },
-  {
-    name: "Ft Lauderdale",
-    id: "3",
-    image: "/fort.jpeg",
-  },
-  {
-    name: "Boca Raton",
-    id: "4",
-    image: "/boca.jpeg",
-  },
-];

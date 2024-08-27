@@ -2,13 +2,14 @@ import React from "react";
 import Header from "../Header";
 import ServiceCard from "../cards/ServiceCard";
 import Link from "next/link";
+import { services } from "@/utile/lib";
 
 export default function ServicesSection() {
   return (
     <div className="bg-secondary pb-12">
       <Header title={"Our Services"} />
       <div className="flex flex-wrap flex-col md:flex-row lg:flex-row gap-5 max-w-[75rem] mx-auto">
-        {services.map((service) => (
+        {services.slice(0, 3).map((service) => (
           <ServiceCard key={service.id} {...service} />
         ))}
       </div>
@@ -24,21 +25,3 @@ export default function ServicesSection() {
   );
 }
 
-const services = [
-  {
-    name: "Airport Transfers",
-    id: "1",
-  },
-  {
-    name: "Corporate & Private Tranportation",
-    id: "2",
-  },
-  {
-    name: "Special events",
-    id: "3",
-  },
-  // {
-  //   name: "Hourly & Daily",
-  //   id: "4",
-  // },
-];

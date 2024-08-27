@@ -1,6 +1,7 @@
 import React from "react";
 import Header from "../Header";
 import FleetCard from "../cards/FleetCard";
+import { fleets } from "@/utile/lib";
 
 export default function FleetSection() {
   return (
@@ -15,14 +16,4 @@ export default function FleetSection() {
   );
 }
 
-const fleets = [
-  {
-    name: "SUV Chevrolet",
-    id: "1",
-  },
-  {
-    name: "SUV Chevrolet",
-    id: "2",
-  },
-  
-];
+
