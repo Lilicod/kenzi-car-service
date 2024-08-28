@@ -1,21 +1,30 @@
 export const services = [
   {
     name: "Airport Transfers",
+    image: "airport.jpeg",
     id: "1",
+    description: "Reliable and timely airport transfer services to and from all major airports. Our professional drivers ensure a smooth and stress-free journey, helping you reach your destination comfortably and on time, regardless of early morning or late-night flights."
   },
   {
-    name: "Corporate & Private Tranportation",
+    name: "Corporate & Private Transportation",
+  image: "corporate.jpeg",
     id: "2",
+    description: "Premium transportation services tailored for corporate clients and private individuals. Whether it's a business meeting, conference, or personal trip, our service offers a high level of professionalism, privacy, and comfort to meet all your transportation needs."
   },
   {
-    name: "Special events",
+    name: "Special Events",
+    image: "events.jpeg",
     id: "3",
+    description: "Luxury transportation services for special events such as weddings, proms, parties, and more. Arrive in style and elegance with our high-end vehicles and experienced chauffeurs, ensuring a memorable and seamless experience for all your special occasions."
   },
   {
     name: "Hourly & Daily",
+    image: "hourly.jpeg",
     id: "4",
+    description: "Flexible hourly and daily car rental services for those needing transportation for extended periods. Ideal for shopping trips, sightseeing, business appointments, or any other activities where you need a vehicle at your disposal for several hours or the entire day."
   },
 ];
+
 
 export const Locations = [
   {

@@ -79,7 +79,7 @@ export default function Fleet() {
             ))}
           </Slider>
         </div>
-        <div className="max-w-2xl mx-auto py-8 px-4 mt-0 lg:mt-6">
+        <div className="max-w-2xl mx-auto py-8 px-4 mt-0 lg:mt-0">
           <h4 className="text-2xl font-medium font-poppins">SUV 6 PAX</h4>
           <p className="text-lg font-normal font-poppins max-w-3xl">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum
