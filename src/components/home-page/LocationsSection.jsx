@@ -28,6 +28,13 @@ export default function LocationsSection() {
           <LocationCard key={location.id} {...location} />
         ))}
       </div>
+      <a
+          target="_blank"
+            href={"https://maps.app.goo.gl/Y8dyHJ59dDMi4JxG7"}
+            className="lg:hidden block rounded-lg bg-primary font-poppins text-white flex mx-auto font-medium py-3 px-6 w-fit mx-auto mt-10"
+          >
+            View in Map
+          </a>
     </div>
   );
 }
