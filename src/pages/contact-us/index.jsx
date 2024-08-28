@@ -152,7 +152,7 @@ export default function ContactUs() {
           </div>
         </div>
       </div>
-      <LocationsSection />
+      {/* <LocationsSection /> */}
     </Layout>
   );
 }
