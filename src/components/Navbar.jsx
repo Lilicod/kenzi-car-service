@@ -20,40 +20,54 @@ export default function Navbar() {
       >
         <nav className="max-w-[75rem] w-full mx-auto px-4 sm:flex sm:items-center sm:justify-between">
           <div className="flex items-center justify-between">
-            <Link
-              className=""
-              href="/"
-            >
-              <Image 
-              height={100}
-              width={200}
-              src="/logo.png"
-              />
+            <Link className="" href="/">
+              <Image height={100} width={200} src="/logo.png" />
             </Link>
             <div className="block lg:hidden">
               <Menu />
             </div>
           </div>
           <div className="hidden lg:block">
-            <div className="flex flex-col gap-10 p-8 sm:p-0 sm:flex-row sm:items-center sm:justify-end sm:mt-0 sm:ps-5">
+            <div className=" flex flex-col gap-10 p-8 sm:p-0 sm:flex-row sm:items-center sm:justify-end sm:mt-0 sm:ps-5">
               <>
-                <Link className="font-medium font-poppins text-lg uppercase hover:text-primary" href="/">
+                <Link
+                  className="font-medium font-poppins text-lg uppercase hover:text-primary"
+                  href="/"
+                >
                   home
                 </Link>
-                <Link className="font-medium font-poppins text-lg uppercase hover:text-primary" href="/services">
+                <Link
+                  className="font-medium font-poppins text-lg uppercase hover:text-primary"
+                  href="/services"
+                >
                   services
                 </Link>
-                <Link className="font-medium font-poppins text-lg uppercase hover:text-primary" href="/fleet">
+                <Link
+                  className="font-medium font-poppins text-lg uppercase hover:text-primary"
+                  href="/fleet"
+                >
                   Fleet
                 </Link>
-                <Link className="font-medium font-poppins text-lg uppercase hover:text-primary" href="/about-us">
+                <Link
+                  className="font-medium font-poppins text-lg uppercase hover:text-primary"
+                  href="/about-us"
+                >
                   About us
                 </Link>
-                <Link className="font-medium font-poppins text-lg uppercase hover:text-primary" href="/contact-us">
+                <Link
+                  className="font-medium font-poppins text-lg uppercase hover:text-primary"
+                  href="/contact-us"
+                >
                   Contact Us
                 </Link>
-                <Link className="font-medium font-poppins text-lg uppercase hover:text-primary" href="/get-a-quote">
+                {/* <Link className="font-medium font-poppins text-lg uppercase hover:text-primary" href="/get-a-quote">
                   Get a Quote
+                </Link> */}
+                <Link
+                  href={"/get-a-quote"}
+                  className="rounded-lg bg-primary font-poppins text-lg text-white font-medium py-2 px-5 flex justify-center w-fit mx-auto "
+                >
+                  Reserve Now
                 </Link>
               </>
             </div>
