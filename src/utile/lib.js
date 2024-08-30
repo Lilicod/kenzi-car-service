@@ -50,15 +50,37 @@ export const Locations = [
 ];
 
 export const fleets = [
+  // {
+  //   id: 1,
+  //   type: "Sedan",
+  //   image: "fleet.png", // Replace with actual image path or URL
+  //   description: "Comfortable sedan for up to 4 passengers.",
+  // },
   {
-    name: "SUV Chevrolet",
-    id: "1",
+    id: 2,
+    type: "SUV",
+    image: "fleet.png", // Replace with actual image path or URL
+    description: "Spacious SUV for up to 6 passengers.",
   },
   // {
-  //   name: "SUV Chevrolet",
-  //   id: "2",
+  //   id: 3,
+  //   type: "Luxury",
+  //   image: "fleet.png", // Replace with actual image path or URL
+  //   description: "Luxury car for up to 4 passengers.",
   // },
 ];
+
+
+// export const fleets = [
+//   {
+//     name: "SUV Chevrolet",
+//     id: "1",
+//   },
+//   // {
+//   //   name: "SUV Chevrolet",
+//   //   id: "2",
+//   // },
+// ];
 
 export const images = [
   {

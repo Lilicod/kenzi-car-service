@@ -2,7 +2,7 @@ import Link from "next/link";
 import React from "react";
 import { LuArrowUpRight } from "react-icons/lu";
 
-export default function FleetCard({ name }) {
+export default function FleetCard({ type }) {
   return (
     <div className="relative lg:w-[600px] md:w-[600px] w-[350px] mx-auto  ">
       <div
@@ -12,7 +12,7 @@ export default function FleetCard({ name }) {
         className="relative rounded-xl bg-secondary lg:w-[600px] md:w-[600px] w-[350px]  lg:h-[400px] md:h-[400px] h-[300px] bg-cover bg-center"
       ></div>
       <div className="text-black absolute top-3 right-3 font-poppins font-medium ">
-        {name}{" "}
+        {type}{" "}
       </div>
       <Link href={"/fleet"}>
 
