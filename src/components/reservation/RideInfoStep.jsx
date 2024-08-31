@@ -275,7 +275,7 @@ export default function RideInfoStep({
             Next
           </button>
         </div>
-        <div className="hidden lg:block">
+        <div className="hidden lg:block w-1/2 bg- red-500">
           <MapBox />
         </div>
       </div>

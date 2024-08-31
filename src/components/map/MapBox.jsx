@@ -68,7 +68,7 @@ export default function MapBox() {
           latitude: 37.8,
           zoom: 14,
         }}
-        style={{ width: 600, height: 400, borderRadius: 10 }}
+        style={{ width: "100%", height: 400, borderRadius: 10 }}
         mapStyle="mapbox://styles/mapbox/streets-v9"
       >
         <Markers />
