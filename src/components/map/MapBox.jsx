@@ -79,7 +79,7 @@ export default function MapBox() {
           />
         )}
       </Map>
-      <div className="absolute  z-20 hidden md:block">
+      <div className="absolute  z-20 hidden lg:block">
         <DistanceTime />
       </div>
     </div>

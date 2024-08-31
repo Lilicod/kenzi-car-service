@@ -1,7 +1,10 @@
-import React from 'react';
+import { CoordinatesContext } from '@/context/CoordinatesContext';
+import React, { useContext } from 'react';
 
 export default function Payment({ formData, handleSubmit, prevStep }) {
   // Example function to improve the service type display
+  const { directionData } = useContext(CoordinatesContext);
+  
   const getFormattedServiceType = (serviceType) => {
     switch (serviceType) {
       case 'fromAirport':
@@ -13,17 +16,16 @@ export default function Payment({ formData, handleSubmit, prevStep }) {
       case 'hourly':
         return 'Hourly Service';
       default:
-        return serviceType; // Fallback if serviceType doesn't match known types
+        return serviceType; 
     }
   };
 
-  // Assuming `calculateFinalPrice` is a function that calculates the price based on formData
+
   const calculateFinalPrice = () => {
-    // Replace with your pricing logic
-    let basePrice = 100; // Base price example
-    let additionalStopPrice = formData.stops.length * 20; // Example additional cost for stops
+    
     let vehicleMultiplier = formData.vehicleType === 'SUV' ? 1.5 : 1; // Example multiplier for SUV
-    let finalPrice = basePrice + additionalStopPrice * vehicleMultiplier;
+    let distance = directionData?.routes[0]?.distance*0.000621371192; // convert to miles
+    let finalPrice =  distance * vehicleMultiplier;
     return finalPrice.toFixed(2); // Format to 2 decimal places
   };
 
