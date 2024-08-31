@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
-import Banner from '@/components/Banner';
-import Layout from '@/layout/Layout';
-import FinalDetailsStep from '@/components/reservation/FinalDetailsStep';
-import SelectVehicleStep from '@/components/reservation/SelectVehicleStep';
-import RideInfoStep from '@/components/reservation/RideInfoStep';
-import StepProgress from '@/components/reservation/StepProgress';
-import Payment from '@/components/reservation/Payment';
+import React, { useState } from "react";
+import Banner from "@/components/Banner";
+import Layout from "@/layout/Layout";
+import FinalDetailsStep from "@/components/reservation/FinalDetailsStep";
+import SelectVehicleStep from "@/components/reservation/SelectVehicleStep";
+import RideInfoStep from "@/components/reservation/RideInfoStep";
+import StepProgress from "@/components/reservation/StepProgress";
+import Payment from "@/components/reservation/Payment";
 
 export default function GetAQuote() {
   // State to track the current step
@@ -13,19 +13,19 @@ export default function GetAQuote() {
 
   // State to store form data
   const [formData, setFormData] = useState({
-    serviceType: '',
-    pickUpDate: '',
-    pickUpTime: '',
-    pickUpLocation: '',
+    serviceType: "",
+    pickUpDate: "",
+    pickUpTime: "",
+    pickUpLocation: "",
     stops: [],
-    dropOffLocation: '',
-    passengers: '',
-    luggageCount: '',
-    vehicleType: '',
-    firstName: '',
-    lastName: '',
-    phone: '',
-    email: '',
+    dropOffLocation: "",
+    passengers: "",
+    luggageCount: "",
+    vehicleType: "",
+    firstName: "",
+    lastName: "",
+    phone: "",
+    email: "",
   });
 
   // Function to handle form input changes
@@ -53,7 +53,7 @@ export default function GetAQuote() {
   return (
     <Layout>
       <Banner header={"Book a Ride"} image={"fleet2.jpeg"} />
-      <div className='font-poppins max-w-[75rem] mx-auto py-8 px-4'>
+      <div className="font-poppins max-w-[75rem] mx-auto py-8 px-4">
         {/* Step Progress Indicator */}
         <StepProgress step={step} />
 

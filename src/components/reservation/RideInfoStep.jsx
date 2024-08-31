@@ -1,9 +1,26 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import MapBox from "../map/MapBox";
+import { CoordinatesContext } from "@/context/CoordinatesContext";
 
-export default function RideInfoStep({ formData, handleChange, nextStep, setFormData }) {
+export default function RideInfoStep({
+  formData,
+  handleChange,
+  nextStep,
+  setFormData,
+}) {
   const [pickUpAddressList, setPickUpAddressList] = useState([]);
   const [dropOffAddressList, setDropOffAddressList] = useState([]);
-  const [isSearching, setIsSearching] = useState({ pickUp: false, dropOff: false });
+  const [isSearching, setIsSearching] = useState({
+    pickUp: false,
+    dropOff: false,
+  });
+
+  const { pickUpCoordinates, setPickUpCoordinates, dropOffCoordinates, setDropOffCoordinates } = useContext(CoordinatesContext);
+
+  const MAP_RETRIEVE_URL =
+    "https://api.mapbox.com/search/searchbox/v1/retrieve/";
+  const session_token = "c4871931-17fb-412b-85ca-c71923ac577a";
+  const access_token = process.env.NEXT_PUBLIC_MAPBOX;
 
   useEffect(() => {
     if (isSearching.pickUp) {
@@ -27,36 +44,57 @@ export default function RideInfoStep({ formData, handleChange, nextStep, setForm
 
   const getAddress = async (query, setAddressList) => {
     if (!query) return;
-    const res = await fetch(
-      "/api/search-address?q=" + query,
-      {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    );
+    const res = await fetch("/api/search-address?q=" + query, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
     const data = await res.json();
     setAddressList(data);
   };
 
-  const handleAddressSelection = (selectedAddress, fieldName) => {
-    setFormData(prevData => ({
+  const handleAddressSelection = async (selectedSuggestion, fieldName) => {
+    setFormData((prevData) => ({
       ...prevData,
-      [fieldName]: selectedAddress
+      [fieldName]: selectedSuggestion.full_address,
+      [`${fieldName}Object`]: selectedSuggestion, // Store the full object
     }));
-    if (fieldName === 'pickUpLocation') {
+
+    if (fieldName === "pickUpLocation") {
       setPickUpAddressList([]);
-      setIsSearching(prev => ({ ...prev, pickUp: false }));
+      setIsSearching((prev) => ({ ...prev, pickUp: false }));
     } else {
       setDropOffAddressList([]);
-      setIsSearching(prev => ({ ...prev, dropOff: false }));
+      setIsSearching((prev) => ({ ...prev, dropOff: false }));
+    }
+
+    try {
+      const res = await fetch(
+        `${MAP_RETRIEVE_URL}${selectedSuggestion.mapbox_id}?session_token=${session_token}&access_token=${access_token}`
+      );
+      const data = await res.json();
+
+      if (fieldName === "pickUpLocation") {
+        setPickUpCoordinates({
+          lat: data.features[0].geometry.coordinates[1],
+          lng: data.features[0].geometry.coordinates[0],
+        });
+      } else {
+        setDropOffCoordinates({
+          lat: data.features[0].geometry.coordinates[1],
+          lng: data.features[0].geometry.coordinates[0],
+        });
+      }
+
+    } catch (error) {
+      console.error("Error retrieving location details:", error);
     }
   };
 
   const handleInputFocus = (fieldName) => {
-    setIsSearching(prev => ({
+    setIsSearching((prev) => ({
       ...prev,
-      [fieldName === 'pickUpLocation' ? 'pickUp' : 'dropOff']: true
+      [fieldName === "pickUpLocation" ? "pickUp" : "dropOff"]: true,
     }));
   };
 
@@ -72,8 +110,7 @@ export default function RideInfoStep({ formData, handleChange, nextStep, setForm
       <h2 className="text-xl font-medium">Step 1: Ride Info</h2>
       <div className="flex flex-col lg:flex-row gap-16">
         <div className="w- space-y-6">
-         
-        <div>
+          <div>
             <label htmlFor="serviceType" className="block mb-2">
               Select Service Type
             </label>
@@ -122,7 +159,7 @@ export default function RideInfoStep({ formData, handleChange, nextStep, setForm
               />
             </div>
           </div>
-          
+
           {/* Pick-Up Location */}
           <div className="relative">
             <label htmlFor="pickUpLocation" className="block mb-2">
@@ -135,7 +172,7 @@ export default function RideInfoStep({ formData, handleChange, nextStep, setForm
               name="pickUpLocation"
               value={formData.pickUpLocation}
               onChange={handleChange}
-              onFocus={() => handleInputFocus('pickUpLocation')}
+              onFocus={() => handleInputFocus("pickUpLocation")}
               onBlur={handleInputBlur}
               className="w-full p-2 border rounded"
             />
@@ -143,9 +180,11 @@ export default function RideInfoStep({ formData, handleChange, nextStep, setForm
             {isSearching.pickUp && pickUpAddressList?.suggestions && (
               <div className="shadow-md p-1 bg-white rounded-md absolute w-full z-10">
                 {pickUpAddressList.suggestions.map((suggestion, index) => (
-                  <div 
+                  <div
                     key={index}
-                    onMouseDown={() => handleAddressSelection(suggestion.full_address, "pickUpLocation")}
+                    onMouseDown={() =>
+                      handleAddressSelection(suggestion, "pickUpLocation")
+                    }
                     className="p-3 cursor-pointer hover:bg-gray-100"
                   >
                     {suggestion.full_address}
@@ -167,7 +206,7 @@ export default function RideInfoStep({ formData, handleChange, nextStep, setForm
               name="dropOffLocation"
               value={formData.dropOffLocation}
               onChange={handleChange}
-              onFocus={() => handleInputFocus('dropOffLocation')}
+              onFocus={() => handleInputFocus("dropOffLocation")}
               onBlur={handleInputBlur}
               className="w-full p-2 border rounded"
             />
@@ -175,9 +214,11 @@ export default function RideInfoStep({ formData, handleChange, nextStep, setForm
             {isSearching.dropOff && dropOffAddressList?.suggestions && (
               <div className="shadow-md p-1 bg-white rounded-md absolute w-full z-10">
                 {dropOffAddressList.suggestions.map((suggestion, index) => (
-                  <div 
+                  <div
                     key={index}
-                    onMouseDown={() => handleAddressSelection(suggestion.full_address, "dropOffLocation")}
+                    onMouseDown={() =>
+                      handleAddressSelection(suggestion, "dropOffLocation")
+                    }
                     className="p-3 cursor-pointer hover:bg-gray-100"
                   >
                     {suggestion.full_address}
@@ -185,6 +226,10 @@ export default function RideInfoStep({ formData, handleChange, nextStep, setForm
                 ))}
               </div>
             )}
+          </div>
+
+          <div className="block lg:hidden">
+            <MapBox />
           </div>
 
           {/* Passengers AND Luggage */}
@@ -230,7 +275,9 @@ export default function RideInfoStep({ formData, handleChange, nextStep, setForm
             Next
           </button>
         </div>
-        <div className="hidden lg:block bg-gray-200 w-1/2 h-96 rounded"></div>
+        <div className="hidden lg:block">
+          <MapBox />
+        </div>
       </div>
     </div>
   );
