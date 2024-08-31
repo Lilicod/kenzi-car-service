@@ -36,8 +36,30 @@ export default function GetAQuote() {
     });
   };
 
+  // Function to validate the current step
+  const validateStep = (currentStep) => {
+    switch (currentStep) {
+      case 1:
+        return formData.serviceType && formData.pickUpDate && formData.pickUpTime && 
+               formData.pickUpLocation && formData.dropOffLocation && 
+               formData.passengers && formData.luggageCount;
+      case 2:
+        return formData.vehicleType;
+      case 3:
+        return formData.firstName && formData.lastName && formData.phone && formData.email;
+      default:
+        return true;
+    }
+  };
+
   // Function to go to the next step
-  const nextStep = () => setStep(step + 1);
+  const nextStep = () => {
+    if (validateStep(step)) {
+      setStep(step + 1);
+    } else {
+      alert("Please fill in all required fields before proceeding.");
+    }
+  };
 
   // Function to go to the previous step
   const prevStep = () => setStep(step - 1);

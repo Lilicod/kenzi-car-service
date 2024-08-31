@@ -61,9 +61,14 @@ export default function Payment({ formData, handleSubmit, prevStep }) {
       </div>
 
       {/* Display the final price */}
-      <div className='bg-white p-4 rounded-lg'>
-        <h3 className='text-lg font-semibold'>Final Price: ${finalPrice}</h3>
-      </div>
+      {
+        directionData && (
+          <div className='bg-white p-4 rounded-lg'>
+            <h3 className='text-lg font-semibold'>Final Price: ${finalPrice}</h3>
+          </div>
+        )
+      }
+    
 
       {/* Action buttons */}
       <div className='flex gap-4 mt-4'>
