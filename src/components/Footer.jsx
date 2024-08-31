@@ -59,7 +59,7 @@ export default function Footer() {
             {/* End Social Brands */}
           </div>
           {/* End Col 1*/}
-          <div className="col-span-1 lg:pt-10">
+          <div className="col-span-1 lg:pt-10 hidden lg:block">
             <div className="mt-3 grid space-y-3">
               <Link href="#" className="font-semibold text-gray-100">
                 Home
@@ -75,7 +75,7 @@ export default function Footer() {
 
           {/* End Col 2*/}
 
-          <div className="col-span-1 lg:pt-10">
+          <div className="col-span-1 lg:pt-10 hidden lg:block">
             <div className="mt-3 grid space-y-3">
               <Link href="#" className="font-semibold text-gray-100">
                 Get a quote
