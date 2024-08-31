@@ -63,6 +63,7 @@ export default function GetAQuote() {
             formData={formData}
             handleChange={handleChange}
             nextStep={nextStep}
+            setFormData={setFormData}
           />
         )}
         {step === 2 && (
