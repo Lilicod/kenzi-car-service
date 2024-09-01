@@ -15,7 +15,12 @@ export default function RideInfoStep({
     dropOff: false,
   });
 
-  const { pickUpCoordinates, setPickUpCoordinates, dropOffCoordinates, setDropOffCoordinates } = useContext(CoordinatesContext);
+  const {
+    pickUpCoordinates,
+    setPickUpCoordinates,
+    dropOffCoordinates,
+    setDropOffCoordinates,
+  } = useContext(CoordinatesContext);
 
   const MAP_RETRIEVE_URL =
     "https://api.mapbox.com/search/searchbox/v1/retrieve/";
@@ -85,7 +90,6 @@ export default function RideInfoStep({
           lng: data.features[0].geometry.coordinates[0],
         });
       }
-
     } catch (error) {
       console.error("Error retrieving location details:", error);
     }

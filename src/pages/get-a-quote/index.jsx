@@ -6,8 +6,10 @@ import SelectVehicleStep from "@/components/reservation/SelectVehicleStep";
 import RideInfoStep from "@/components/reservation/RideInfoStep";
 import StepProgress from "@/components/reservation/StepProgress";
 import Payment from "@/components/reservation/Payment";
+import { useRouter } from "next/navigation";
 
 export default function GetAQuote() {
+  const router = useRouter();
   // State to track the current step
   const [step, setStep] = useState(1);
 
@@ -65,10 +67,14 @@ export default function GetAQuote() {
   const prevStep = () => setStep(step - 1);
 
   // Function to handle form submission (booking or quote request)
-  const handleSubmit = () => {
+  const handleSubmit = (finalPrice) => {
     if (step === 4) {
       // If step 4, handle booking or quote request logic here
       console.log("Form Submitted: ", formData);
+      router.push({
+        pathname: "/payment",
+        query: { amount: finalPrice },
+      })
     }
   };
 
