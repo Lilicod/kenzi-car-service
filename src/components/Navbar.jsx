@@ -67,7 +67,7 @@ export default function Navbar() {
                   href={"/get-a-quote"}
                   className="rounded-lg bg-primary font-poppins text-lg text-white font-medium py-2 px-5 flex justify-center w-fit mx-auto "
                 >
-                  Reserve Now
+                  Get a Quote
                 </Link>
               </>
             </div>

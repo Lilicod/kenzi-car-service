@@ -42,13 +42,24 @@ export default function GetAQuote() {
   const validateStep = (currentStep) => {
     switch (currentStep) {
       case 1:
-        return formData.serviceType && formData.pickUpDate && formData.pickUpTime && 
-               formData.pickUpLocation && formData.dropOffLocation && 
-               formData.passengers && formData.luggageCount;
+        return (
+          formData.serviceType &&
+          formData.pickUpDate &&
+          formData.pickUpTime &&
+          formData.pickUpLocation &&
+          formData.dropOffLocation &&
+          formData.passengers &&
+          formData.luggageCount
+        );
       case 2:
         return formData.vehicleType;
       case 3:
-        return formData.firstName && formData.lastName && formData.phone && formData.email;
+        return (
+          formData.firstName &&
+          formData.lastName &&
+          formData.phone &&
+          formData.email
+        );
       default:
         return true;
     }
@@ -74,13 +85,13 @@ export default function GetAQuote() {
       router.push({
         pathname: "/payment",
         query: { amount: finalPrice },
-      })
+      });
     }
   };
 
   return (
     <Layout>
-      <Banner header={"Book a Ride"} image={"fleet2.jpeg"} />
+      <Banner header={"Get a Quote"} image={"fleet2.jpeg"} />
       <div className="font-poppins max-w-[75rem] mx-auto py-8 px-4">
         {/* Step Progress Indicator */}
         <StepProgress step={step} />

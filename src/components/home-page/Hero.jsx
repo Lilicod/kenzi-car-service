@@ -23,7 +23,7 @@ export default function Hero() {
           href={"/get-a-quote"}
           className="rounded-lg bg-primary font-poppins text-lg text-white font-medium py-2 px-5 flex justify-start w-fit"
         >
-          Reserve Now
+          Get a Quote
         </Link>
       </div>
     </div>

@@ -61,13 +61,13 @@ export default function Footer() {
           {/* End Col 1*/}
           <div className="col-span-1 lg:pt-10 hidden lg:block">
             <div className="mt-3 grid space-y-3">
-              <Link href="#" className="font-semibold text-gray-100">
+              <Link href="/" className="font-semibold text-gray-100">
                 Home
               </Link>
-              <Link href="#" className="font-semibold text-gray-100">
+              <Link href="/services" className="font-semibold text-gray-100">
                 Services
               </Link>
-              <Link href="#" className="font-semibold text-gray-100">
+              <Link href="/fleet" className="font-semibold text-gray-100">
                 Fleet
               </Link>
             </div>
@@ -77,13 +77,13 @@ export default function Footer() {
 
           <div className="col-span-1 lg:pt-10 hidden lg:block">
             <div className="mt-3 grid space-y-3">
-              <Link href="#" className="font-semibold text-gray-100">
+              <Link href="/get-a-quote" className="font-semibold text-gray-100">
                 Get a quote
               </Link>
-              <Link href="#" className="font-semibold text-gray-100">
+              <Link href="/about-us" className="font-semibold text-gray-100">
                 About us
               </Link>
-              <Link href="#" className="font-semibold text-gray-100">
+              <Link href="/contact-us" className="font-semibold text-gray-100">
                 Contact us
               </Link>
             </div>
@@ -100,8 +100,6 @@ export default function Footer() {
               </Link>
             </div>
           </div> */}
-
-         
 
           <div className="col-span-1 lg:pt-12">
             <h4 className="font-semibold text-gray-100">Contact Info</h4>
@@ -122,8 +120,7 @@ export default function Footer() {
               </p>
             </div>
           </div>
-           {/* End Col 4*/}
-
+          {/* End Col 4*/}
         </div>
         {/* End Grid  */}
         <hr className="mt-8 border-gray-600 " />
