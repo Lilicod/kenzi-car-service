@@ -10,7 +10,7 @@ export default async function handler(req, res) {
       // Send an email using Resend 
       await resend.emails.send({
         from: "contact@kenzi-car-service.com", 
-        to: "liliabendjeddou9@gmail.com", 
+        to: "kenzi.carservice@gmail.com", 
         subject: "New Contact Us Message",
         html: `
           <p><strong>Name:</strong> ${name}</p>

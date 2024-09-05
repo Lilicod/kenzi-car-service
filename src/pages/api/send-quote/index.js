@@ -23,7 +23,7 @@ export default async function handler(req, res) {
     try {
       await resend.emails.send({
         from: "quote-request@kenzi-car-service.com", 
-        to: "liliabendjeddou9@gmail.com",
+        to: "kenzi.carservice@gmail.com",
         subject: "Ride Quote Request",
         react: EmailTemplate({
           serviceType,
