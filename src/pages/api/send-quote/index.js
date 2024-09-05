@@ -15,16 +15,15 @@ export default async function handler(req, res) {
       luggageCount,
       vehicleType,
       finalPrice,
-      passengerFirstame,
-      passengerLastname,
+      passengerName,
       passengerEmail,
       passengerPhone,
     } = req.body;
 
     try {
       await resend.emails.send({
-        from: "delivered@resend.dev", // Replace with your email
-        to: "liliabendjeddou9@gmail.com", // Replace with driver's email
+        from: "quote-request@kenzi-car-service.com", 
+        to: "liliabendjeddou9@gmail.com",
         subject: "Ride Quote Request",
         react: EmailTemplate({
           serviceType,
@@ -36,8 +35,7 @@ export default async function handler(req, res) {
           luggageCount,
           vehicleType,
           finalPrice,
-          passengerFirstame,
-          passengerLastname,
+          passengerName,
           passengerEmail,
           passengerPhone,
         }),

@@ -10,8 +10,7 @@ export default function EmailTemplate({
   passengers,
   luggageCount,
   vehicleType,
-  passengerFirstame,
-  passengerLastname,
+  passengerName,
   passengerEmail,
   passengerPhone,
 }) {
@@ -44,10 +43,7 @@ export default function EmailTemplate({
           <strong>Selected Vehicle:</strong> {vehicleType}
         </li>
         <li>
-          <strong>First Name:</strong> {passengerFirstame}
-        </li>
-        <li>
-          <strong>Last Name:</strong> {passengerLastname}
+          <strong>Name:</strong> {passengerName}
         </li>
         <li>
           <strong>Email:</strong> {passengerEmail}

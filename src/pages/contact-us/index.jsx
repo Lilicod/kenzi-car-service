@@ -1,6 +1,6 @@
 import Banner from "@/components/Banner";
 import Layout from "@/layout/Layout";
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form"; 
 import { FaPhoneAlt } from "react-icons/fa";
 import { IoMail } from "react-icons/io5";
@@ -9,6 +9,7 @@ import { MdOutlineWatchLater } from "react-icons/md";
 import { FaCalendarDays } from "react-icons/fa6";
 
 export default function ContactUs() {
+  const [loading, setLoading] = useState(false);
   // Initialize the form with useForm hook
   const {
     register,
@@ -18,25 +19,28 @@ export default function ContactUs() {
 
   // Function to handle form submission
   const onSubmit = async (data) => {
+    setLoading(true);
 
-    // try {
-    //   const response = await fetch("/api/contact", {
-    //     method: "POST",
-    //     headers: {
-    //       "Content-Type": "application/json",
-    //     },
-    //     body: JSON.stringify(data),
-    //   });
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
 
-    //   if (response.ok) {
-    //     alert("Your message has been sent successfully!");
-    //   } else {
-    //     alert("Failed to send your message. Please try again.");
-    //   }
-    // } catch (error) {
-    //   console.error("Error sending message:", error);
-    //   alert("Error sending your message. Please try again later.");
-    // }
+      if (response.ok) {
+        alert("Your message has been sent successfully!");
+        setLoading(false);
+      } else {
+        alert("Failed to send your message. Please try again.");
+        setLoading(false);
+      }
+    } catch (error) {
+      console.error("Error sending message:", error);
+      alert("Error sending your message. Please try again later.");
+    }
   };
 
   return (
@@ -141,10 +145,11 @@ export default function ContactUs() {
 
             {/* Submit Button */}
             <button
+              disabled={loading}
               type="submit"
               className="bg-primary text-white px-4 py-2 rounded-lg"
             >
-              SEND
+               {loading  ? "SENDING..." : "SEND"}
             </button>
           </form>
         </div>

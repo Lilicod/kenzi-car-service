@@ -7,10 +7,10 @@ export default async function handler(req, res) {
     const { name, email, phone, message } = req.body;
 
     try {
-      // Send an email using Resend (or any other service)
+      // Send an email using Resend 
       await resend.emails.send({
-        from: "delivered@resend.dev", // Replace with your sender email
-        to: "liliabendjeddou9@gmail.com", // Replace with your recipient email
+        from: "contact@kenzi-car-service.com", 
+        to: "liliabendjeddou9@gmail.com", 
         subject: "New Contact Us Message",
         html: `
           <p><strong>Name:</strong> ${name}</p>

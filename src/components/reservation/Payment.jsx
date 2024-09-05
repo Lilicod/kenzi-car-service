@@ -31,45 +31,45 @@ export default function Payment({ formData, handleSubmit, prevStep }) {
   const finalPrice = calculateFinalPrice();
 
   const sendQuoteEmail = async () => {
-    // setIsSending(true);
-    // setNotification(""); 
+    setIsSending(true);
+    setNotification(""); 
 
-    // const emailData = {
-    //   serviceType: getFormattedServiceType(formData.serviceType),
-    //   pickUpDate: formData.pickUpDate,
-    //   pickUpTime: formData.pickUpTime,
-    //   pickUpLocation: formData.pickUpLocation,
-    //   stops: formData.stops,
-    //   dropOffLocation: formData.dropOffLocation,
-    //   passengers: formData.passengers,
-    //   luggageCount: formData.luggageCount,
-    //   vehicleType: formData.vehicleType,
-    //   finalPrice: finalPrice,
-    //   passengerName: formData.firstName + " " + formData.lastName,
-    //   passengerEmail: formData.email,
-    //   passengerPhone: formData.phone,
-    // };
+    const emailData = {
+      serviceType: getFormattedServiceType(formData.serviceType),
+      pickUpDate: formData.pickUpDate,
+      pickUpTime: formData.pickUpTime,
+      pickUpLocation: formData.pickUpLocation,
+      stops: formData.stops,
+      dropOffLocation: formData.dropOffLocation,
+      passengers: formData.passengers,
+      luggageCount: formData.luggageCount,
+      vehicleType: formData.vehicleType,
+      finalPrice: finalPrice,
+      passengerName: formData.firstName + " " + formData.lastName,
+      passengerEmail: formData.email,
+      passengerPhone: formData.phone,
+    };
 
-    // try {
-    //   const response = await fetch("/api/send-quote", {
-    //     method: "POST",
-    //     headers: {
-    //       "Content-Type": "application/json",
-    //     },
-    //     body: JSON.stringify(emailData),
-    //   });
+    try {
+      const response = await fetch("/api/send-quote", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(emailData),
+      });
 
-    //   if (response.ok) {
-    //     setNotification("Request sent successfully! you'll be contacted soon.");
-    //   } else {
-    //     setNotification("Failed to send email. Please try again.");
-    //   }
-    // } catch (error) {
-    //   console.error("Error sending email:", error);
-    //   setNotification("Error sending email. Please try again later.");
-    // } finally {
-    //   setIsSending(false); 
-    // }
+      if (response.ok) {
+        setNotification("Request sent successfully! you'll be contacted soon.");
+      } else {
+        setNotification("Failed to send email. Please try again.");
+      }
+    } catch (error) {
+      console.error("Error sending email:", error);
+      setNotification("Error sending email. Please try again later.");
+    } finally {
+      setIsSending(false); 
+    }
   };
 
   return (
@@ -149,7 +149,7 @@ export default function Payment({ formData, handleSubmit, prevStep }) {
           className="bg-primary text-white px-4 py-2 rounded disabled:cursor-not-allowed"
           disabled={isSending} // Disable button while sending email
         >
-          Get a Quote
+         {isSending ? "Sending..." : "Get a quote"}
         </button>
       </div>
     </div>
