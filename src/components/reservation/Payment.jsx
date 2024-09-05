@@ -31,45 +31,45 @@ export default function Payment({ formData, handleSubmit, prevStep }) {
   const finalPrice = calculateFinalPrice();
 
   const sendQuoteEmail = async () => {
-    setIsSending(true);
-    setNotification(""); 
+    // setIsSending(true);
+    // setNotification(""); 
 
-    const emailData = {
-      serviceType: getFormattedServiceType(formData.serviceType),
-      pickUpDate: formData.pickUpDate,
-      pickUpTime: formData.pickUpTime,
-      pickUpLocation: formData.pickUpLocation,
-      stops: formData.stops,
-      dropOffLocation: formData.dropOffLocation,
-      passengers: formData.passengers,
-      luggageCount: formData.luggageCount,
-      vehicleType: formData.vehicleType,
-      finalPrice: finalPrice,
-      passengerName: formData.firstName + " " + formData.lastName,
-      passengerEmail: formData.email,
-      passengerPhone: formData.phone,
-    };
+    // const emailData = {
+    //   serviceType: getFormattedServiceType(formData.serviceType),
+    //   pickUpDate: formData.pickUpDate,
+    //   pickUpTime: formData.pickUpTime,
+    //   pickUpLocation: formData.pickUpLocation,
+    //   stops: formData.stops,
+    //   dropOffLocation: formData.dropOffLocation,
+    //   passengers: formData.passengers,
+    //   luggageCount: formData.luggageCount,
+    //   vehicleType: formData.vehicleType,
+    //   finalPrice: finalPrice,
+    //   passengerName: formData.firstName + " " + formData.lastName,
+    //   passengerEmail: formData.email,
+    //   passengerPhone: formData.phone,
+    // };
 
-    try {
-      const response = await fetch("/api/send-quote", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(emailData),
-      });
+    // try {
+    //   const response = await fetch("/api/send-quote", {
+    //     method: "POST",
+    //     headers: {
+    //       "Content-Type": "application/json",
+    //     },
+    //     body: JSON.stringify(emailData),
+    //   });
 
-      if (response.ok) {
-        setNotification("Request sent successfully! you'll be contacted soon.");
-      } else {
-        setNotification("Failed to send email. Please try again.");
-      }
-    } catch (error) {
-      console.error("Error sending email:", error);
-      setNotification("Error sending email. Please try again later.");
-    } finally {
-      setIsSending(false); 
-    }
+    //   if (response.ok) {
+    //     setNotification("Request sent successfully! you'll be contacted soon.");
+    //   } else {
+    //     setNotification("Failed to send email. Please try again.");
+    //   }
+    // } catch (error) {
+    //   console.error("Error sending email:", error);
+    //   setNotification("Error sending email. Please try again later.");
+    // } finally {
+    //   setIsSending(false); 
+    // }
   };
 
   return (
@@ -114,7 +114,7 @@ export default function Payment({ formData, handleSubmit, prevStep }) {
         </p>
       </div>
 
-      {directionData ? (
+      {/* {directionData ? (
         <div className="bg-white p-4 rounded-lg">
           <h3 className="text-lg font-semibold">Final Price: ${finalPrice}</h3>
         </div>
@@ -122,7 +122,7 @@ export default function Payment({ formData, handleSubmit, prevStep }) {
         <p className="text-red-500">
           Please select a valid pickup and drop-off location from the map to see the price.
         </p>
-      )}
+      )} */}
 
       {notification && (
         <div className="mt-4 p-2 text-center text-white bg-green-500 rounded">
@@ -144,13 +144,13 @@ export default function Payment({ formData, handleSubmit, prevStep }) {
         >
           Book Now
         </button> */}
-        {/* <button
-          onClick={sendQuoteEmail} // Add onClick handler to send email
+        <button
+          onClick={sendQuoteEmail} // onClick handler to send email
           className="bg-primary text-white px-4 py-2 rounded disabled:cursor-not-allowed"
           disabled={isSending} // Disable button while sending email
         >
           Get a Quote
-        </button> */}
+        </button>
       </div>
     </div>
   );

@@ -7,7 +7,7 @@ import React from "react";
 export default function AboutUs() {
   return (
     <Layout>
-      <Banner header={"About Us"} image={"fleet5.jpeg"} />
+      <Banner header={"About Us"} image={"fleet3.jpeg"} />
       <div className="flex flex-col gap-5 max-w-[75rem] mx-auto pt-10 px-5">
         <p className="text-xl font-poppins font medium ">
           From airport transfers to special events, we provide safe, reliable,

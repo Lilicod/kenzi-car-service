@@ -91,7 +91,7 @@ export default function GetAQuote() {
 
   return (
     <Layout>
-      <Banner header={"Get a Quote"} image={"fleet2.jpeg"} />
+      <Banner header={"Get a Quote"} image={"suv.jpg"} />
       <div className="font-poppins max-w-[75rem] mx-auto py-8 px-4">
         {/* Step Progress Indicator */}
         <StepProgress step={step} />

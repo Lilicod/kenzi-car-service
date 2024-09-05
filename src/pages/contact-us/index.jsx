@@ -6,7 +6,7 @@ import { FaPhoneAlt } from "react-icons/fa";
 import { IoMail } from "react-icons/io5";
 import { FaLocationDot } from "react-icons/fa6";
 import { MdOutlineWatchLater } from "react-icons/md";
-import LocationsSection from "@/components/home-page/LocationsSection";
+import { FaCalendarDays } from "react-icons/fa6";
 
 export default function ContactUs() {
   // Initialize the form with useForm hook
@@ -164,8 +164,12 @@ export default function ContactUs() {
             Lauderdale, Florida
           </div>
           <div className="flex flex-row items-center gap-4 text-gray-300">
-            <MdOutlineWatchLater className="text- primary text-3xl" /> 6:00 AM -
-            9:00 PM
+            <FaCalendarDays className="text- primary text-3xl" /> Monday -
+            Sunday
+          </div>
+          <div className="flex flex-row items-center gap-4 text-gray-300">
+            <MdOutlineWatchLater className="text- primary text-3xl" /> 5:00 AM -
+            11:30 PM
           </div>
         </div>
       </div>

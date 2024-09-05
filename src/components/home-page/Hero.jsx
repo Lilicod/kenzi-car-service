@@ -6,7 +6,7 @@ export default function Hero() {
     <div>
       <div
         style={{
-          backgroundImage: `url(/fleet5.jpeg)`,
+          backgroundImage: `url(/suv.jpg)`,
         }}
         className="h-[100vh] bg-cover bg-center relative"
       ></div>

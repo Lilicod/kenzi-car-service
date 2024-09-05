@@ -62,7 +62,7 @@ export default function Fleet() {
 
   return (
     <Layout>
-      <Banner image={"fleet2.jpeg"} header="Fleet" text=""></Banner>
+      <Banner image={"suv2.jpg"} header="Fleet" text=""></Banner>
       <div className="block lg:flex lg:gap-8 max-w-[75rem] mx-auto pb-16">
         <div className="max-w-2xl mx-auto py-4 lg:py-8 px-4 ">
           <Slider {...settings}>
@@ -82,31 +82,28 @@ export default function Fleet() {
         <div className="max-w-2xl mx-auto py-8 px-4 mt-0 lg:mt-0">
           <h4 className="text-2xl font-medium font-poppins">SUV 6 PAX</h4>
           <p className="text-lg font-normal font-poppins max-w-3xl">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum
-            dolor sit amet consectetur adipisicing elit. Perferendis at sequi
-            rerum eveniet cum veritatis labore, officiis adipisci expedita?
-            Doloribus fugit modi quod at nemo nulla assumenda ipsum obcaecati
-            ea?
+            Travel in comfort and style with our premium SUV service. Perfect
+            for groups, families, or business travelers, our spacious SUVs offer
+            a smooth and luxurious ride with plenty of room for luggage.
           </p>
           <div className="flex gap-4 flex-wrap mt-4">
-
-          <div className="font-poppins text-lg p-2 flex items-center gap-3">
-            <FaUsers className="text-primary text-3xl"/> 6 Passengers
-          </div>
-          <div className="font-poppins text-lg p-2 flex items-center gap-3">
-            <BsFillSuitcase2Fill className="text-primary text-3xl"/> 6 Suitcases
-          </div>
-          <div className="font-poppins text-lg p-2 flex items-center gap-3">
-            <FaWifi className="text-primary text-3xl"/> On Board Wi-Fi
-          </div>
+            <div className="font-poppins text-lg p-2 flex items-center gap-3">
+              <FaUsers className="text-primary text-3xl" /> 7 Passengers
+            </div>
+            <div className="font-poppins text-lg p-2 flex items-center gap-3">
+              <BsFillSuitcase2Fill className="text-primary text-3xl" /> 6
+              Suitcases
+            </div>
+            <div className="font-poppins text-lg p-2 flex items-center gap-3">
+              <FaWifi className="text-primary text-3xl" /> On Board Wi-Fi
+            </div>
           </div>
           <Link
-          href={"/get-a-quote"}
-          className="rounded-lg bg-primary font-poppins text-white font-medium py-3 px-6 flex justify-center w-fit mx-auto lg:mx-0 mt-4"
-        >
-          Reserve Now
-        </Link>
-       
+            href={"/get-a-quote"}
+            className="rounded-lg bg-primary font-poppins text-white font-medium py-3 px-6 flex justify-center w-fit mx-auto lg:mx-0 mt-4"
+          >
+            Reserve Now
+          </Link>
         </div>
       </div>
     </Layout>
