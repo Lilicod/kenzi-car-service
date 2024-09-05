@@ -155,7 +155,7 @@ export default function ContactUs() {
         </div>
 
         {/* Info Section */}
-        <div className="w-full bg-black h-[400px] md:h-[475px] p-5 lg:p-10 space-y-10 rounded-lg">
+        <div className="w-full bg-black h-[450px] md:h-[475px] p-5 lg:p-10 space-y-10 rounded-lg">
           <h3 className="font-medium text-4xl text-white">Info</h3>
           <div className="flex flex-row items-center gap-4 text-gray-300">
             <FaPhoneAlt className="text- primary text-3xl" /> 1-954-842-0809
