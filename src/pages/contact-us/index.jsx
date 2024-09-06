@@ -7,6 +7,7 @@ import { IoMail } from "react-icons/io5";
 import { FaLocationDot } from "react-icons/fa6";
 import { MdOutlineWatchLater } from "react-icons/md";
 import { FaCalendarDays } from "react-icons/fa6";
+import { toast } from "react-toastify";
 
 export default function ContactUs() {
   const [loading, setLoading] = useState(false);
@@ -31,15 +32,16 @@ export default function ContactUs() {
       });
 
       if (response.ok) {
-        alert("Your message has been sent successfully!");
+        toast.success('Your message has been sent successfully!');
         setLoading(false);
       } else {
-        alert("Failed to send your message. Please try again.");
+        toast.error("Failed to send your message. Please try again.");
         setLoading(false);
       }
     } catch (error) {
       console.error("Error sending message:", error);
-      alert("Error sending your message. Please try again later.");
+      toast.error('Error sending your message. Please try again later.');
+      setLoading(false);
     }
   };
 

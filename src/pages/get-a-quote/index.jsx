@@ -7,6 +7,7 @@ import RideInfoStep from "@/components/reservation/RideInfoStep";
 import StepProgress from "@/components/reservation/StepProgress";
 import Payment from "@/components/reservation/Payment";
 import { useRouter } from "next/navigation";
+import { toast } from "react-toastify";
 
 export default function GetAQuote() {
   const router = useRouter();
@@ -70,7 +71,7 @@ export default function GetAQuote() {
     if (validateStep(step)) {
       setStep(step + 1);
     } else {
-      alert("Please fill in all required fields before proceeding.");
+      toast.warn('Please fill in all required fields before proceeding.');
     }
   };
 

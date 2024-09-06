@@ -1,5 +1,6 @@
 import { CoordinatesContext } from "@/context/CoordinatesContext";
 import React, { useContext, useState } from "react";
+import { toast } from "react-toastify";
 
 export default function Payment({ formData, handleSubmit, prevStep }) {
   const { directionData } = useContext(CoordinatesContext);
@@ -32,8 +33,7 @@ export default function Payment({ formData, handleSubmit, prevStep }) {
 
   const sendQuoteEmail = async () => {
     setIsSending(true);
-    setNotification(""); 
-
+    
     const emailData = {
       serviceType: getFormattedServiceType(formData.serviceType),
       pickUpDate: formData.pickUpDate,
@@ -60,13 +60,14 @@ export default function Payment({ formData, handleSubmit, prevStep }) {
       });
 
       if (response.ok) {
+        toast.success("Request sent successfully! you'll be contacted soon.");
         setNotification("Request sent successfully! you'll be contacted soon.");
       } else {
-        setNotification("Failed to send email. Please try again.");
+        toast.error("Failed to send email. Please try again.");
       }
     } catch (error) {
       console.error("Error sending email:", error);
-      setNotification("Error sending email. Please try again later.");
+      toast.error("Error sending email. Please try again later.");
     } finally {
       setIsSending(false); 
     }
