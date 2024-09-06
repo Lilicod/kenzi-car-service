@@ -60,7 +60,7 @@ export const fleets = [
     id: 2,
     type: "SUV",
     image: "fleet.png", // Replace with actual image path or URL
-    description: "Spacious SUV for up to 6 passengers.",
+    description: "Spacious SUV for up to 7 passengers.",
   },
   // {
   //   id: 3,
